@@ -1,1 +1,21 @@
-# bfme-registry-management
+# BfmeRegistryManagement by Bfme Foundation
+#### This project is part of the Bfme Foundation Project!
+
+## Welcome
+Welcome to the official github repository of BfmeRegistryManagement!
+This library allows you to easily modify the registry entries used by the BFME games. It can also create installation registries from scratch.
+
+## Get on NuGet
+<a href="https://www.nuget.org/packages/BfmeFoundationProject.BfmeRegistryManagement">
+   <img src="https://img.shields.io/nuget/v/BfmeFoundationProject.BfmeRegistryManagement"/>
+</a>
+
+## Usage
+- `BfmeRegistryManager.CreateNewInstallRegistry()` - Create new installation registry (install the game)
+- `BfmeRegistryManager.GetKeyValue()` - Get a value from the game registry (get game language, installation directory, user data folder, etc...)
+- `BfmeRegistryManager.SetKeyValue()` - Set a value in the games registry
+- `BfmeRegistryManager.EnsureDefaults()` - Ensures that all necesary default values exist for the game to start without errors
+- `BfmeRegistryManager.EnsureFixedRegistry()` - Manualy fixes the registry if it has been corrupted. Called every time when calling `BfmeRegistryManager.GetKeyValue()`.
+- `BfmeRegistryManager.IsInstalled()` - Returns a bool indicating wether the game is installed or not.
+
+###### Developed by: Gazdag Marcell (*@marcellvokk*)<br> Founder & Owner: Beterwell (*@Beterwell*)
