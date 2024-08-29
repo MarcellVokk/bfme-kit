@@ -1,16 +1,16 @@
-# BfmeRegistryManagement by Bfme Foundation
+# RegistryKit by Bfme Foundation
 #### This project is part of the Bfme Foundation Project!
 <a href="https://github.com/MarcellVokk/bfme-foundation-project">
     <img src="https://img.shields.io/badge/GitHub-Foundation Project-lime"/>
 </a>
 
 ## Welcome
-Welcome to the official github repository of BfmeRegistryManagement!
+Welcome to the official github repository of RegistryKit!
 This library allows you to easily modify the registry entries used by the BFME games. It can also create installation registries from scratch.
 
 ## Get on NuGet
-<a href="https://www.nuget.org/packages/BfmeFoundationProject.BfmeRegistryManagement">
-   <img src="https://img.shields.io/nuget/v/BfmeFoundationProject.BfmeRegistryManagement"/>
+<a href="https://www.nuget.org/packages/BfmeFoundationProject.RegistryKit">
+   <img src="https://img.shields.io/nuget/v/BfmeFoundationProject.RegistryKit"/>
 </a>
 
 ## Usage
