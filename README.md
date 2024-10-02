@@ -18,7 +18,7 @@ This library allows you to easily modify the registry entries used by the BFME g
 - `BfmeRegistryManager.GetKeyValue()` - Get a value from the game registry (get game language, installation directory, user data folder, etc...)
 - `BfmeRegistryManager.SetKeyValue()` - Set a value in the games registry
 - `BfmeRegistryManager.EnsureDefaults()` - Ensures that all necesary default values exist for the game to start without errors
-- `BfmeRegistryManager.EnsureFixedRegistry()` - Manualy fixes the registry if it has been corrupted. Called every time when calling `BfmeRegistryManager.GetKeyValue()`.
 - `BfmeRegistryManager.IsInstalled()` - Returns a bool indicating wether the game is installed or not.
+- `BfmeRegistryManager.EnsureFixedRegistry()` - Manualy fixes the registry if it has been corrupted. Called every time when calling `BfmeRegistryManager.GetKeyValue()`.
 
 ###### Developed by: Gazdag Marcell (*@marcellvokk*)<br> Founder & Owner: Beterwell (*@Beterwell*)
