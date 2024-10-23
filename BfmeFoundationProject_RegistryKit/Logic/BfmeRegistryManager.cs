@@ -96,6 +96,9 @@ namespace BfmeFoundationProject.RegistryKit
             if (!File.Exists(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), GetKeyValue(game, BfmeRegistryKey.UserDataLeafName), "Options.ini")) || File.ReadAllText(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), GetKeyValue(game, BfmeRegistryKey.UserDataLeafName), "Options.ini")).Length <= 6)
                 File.WriteAllText(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), GetKeyValue(game, BfmeRegistryKey.UserDataLeafName), "Options.ini"), BfmeDefaults.DefaultOptions);
 
+            EnsureFixedRegistry(Path.Combine(GetKeyValue(game, BfmeRegistryKey.InstallPath), BfmeDefaults.DefaultGameExecutableNames[Convert.ToInt32(game)]));
+            EnsureFixedRegistry(Path.Combine(GetKeyValue(game, BfmeRegistryKey.InstallPath), "game.dat"));
+
             if (game.Equals(2))
                 EnsureDefaults(1);
         }
@@ -111,6 +114,18 @@ namespace BfmeFoundationProject.RegistryKit
                     SetKeyValue(game, BfmeRegistryKey.InstallPath, registryKey.GetValue("Install Dir")?.ToString() ?? "");
                     Registry.LocalMachine.DeleteSubKeyTree(@$"SOFTWARE\{(nint.Size == 8 ? "WOW6432Node" : "")}\{BfmeDefaults.DeprecatedGameRegistryKeys[Convert.ToInt32(game)]}", false);
                 }
+            }
+            catch { }
+        }
+
+        public static void EnsureCompatibilitySettings(string gamePath)
+        {
+            try
+            {
+                using RegistryKey? key = Registry.CurrentUser.OpenSubKey(@$"SOFTWARE\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\Layers", true);
+
+                if (key != null)
+                    key.SetValue(gamePath, "~ WINXPSP3");
             }
             catch { }
         }
