@@ -21,4 +21,4 @@ This library allows you to easily modify the registry entries used by the BFME g
 - `BfmeRegistryManager.IsInstalled()` - Returns a bool indicating wether the game is installed or not.
 - `BfmeRegistryManager.EnsureFixedRegistry()` - Manualy fixes the registry if it has been corrupted. Called every time when calling `BfmeRegistryManager.GetKeyValue()`.
 
-###### Developed by The Bfme Foundation Project
+###### Developed by The Online Battle Arena Team (Beterwel, MarcellVokk)
