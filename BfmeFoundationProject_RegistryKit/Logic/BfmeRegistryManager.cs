@@ -93,7 +93,7 @@ namespace BfmeFoundationProject.RegistryKit
             if (!Directory.Exists(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), GetKeyValue(game, BfmeRegistryKey.UserDataLeafName))))
                 Directory.CreateDirectory(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), GetKeyValue(game, BfmeRegistryKey.UserDataLeafName)));
 
-            if (!File.Exists(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), GetKeyValue(game, BfmeRegistryKey.UserDataLeafName), "Options.ini")) || File.ReadAllText(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), GetKeyValue(game, BfmeRegistryKey.UserDataLeafName), "Options.ini")).Length <= 6)
+            if (!File.Exists(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), GetKeyValue(game, BfmeRegistryKey.UserDataLeafName), "Options.ini")) || File.ReadAllText(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), GetKeyValue(game, BfmeRegistryKey.UserDataLeafName), "Options.ini")).Length <= 6 || !File.ReadAllText(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), GetKeyValue(game, BfmeRegistryKey.UserDataLeafName), "Options.ini")).Contains("Resolution = "))
                 File.WriteAllText(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), GetKeyValue(game, BfmeRegistryKey.UserDataLeafName), "Options.ini"), BfmeDefaults.DefaultOptions);
 
             EnsureFixedRegistry(Path.Combine(GetKeyValue(game, BfmeRegistryKey.InstallPath), BfmeDefaults.DefaultGameExecutableNames[Convert.ToInt32(game)]));
@@ -141,6 +141,52 @@ namespace BfmeFoundationProject.RegistryKit
                 "ROTWK" => 2,
                 _ => 0
             };
+        }
+
+        public static string GameLanguageToLanguageCode(string language)
+        {
+            Dictionary<string, string> languages = new Dictionary<string, string>()
+            {
+                { "english", "EN" },
+                { "english uk", "EN" },
+                { "english us", "EN" },
+                { "french", "FR" },
+                { "german", "DE" },
+                { "italian", "IT" },
+                { "spanish", "ES" },
+                { "swedish", "SV" },
+                { "dutch", "NL" },
+                { "polish", "PL" },
+                { "norwegian", "NO" },
+                { "russian", "RU" }
+            };
+
+            if (languages.ContainsKey(language.ToLower()))
+                return languages[language.ToLower()];
+
+            return language.ToLower();
+        }
+
+        public static string GameLanguageCodeToLanguage(string languageCode)
+        {
+            Dictionary<string, string> languages = new Dictionary<string, string>()
+            {
+                { "en", "English" },
+                { "fr", "French" },
+                { "de", "German" },
+                { "it", "Italian" },
+                { "es", "Spanish" },
+                { "sv", "Swedish" },
+                { "nl", "Dutch" },
+                { "pl", "Polish" },
+                { "no", "Norwegian" },
+                { "ru", "Russian" }
+            };
+
+            if (languages.ContainsKey(languageCode.ToLower()))
+                return languages[languageCode.ToLower()];
+
+            return languageCode.ToLower();
         }
     }
 }
