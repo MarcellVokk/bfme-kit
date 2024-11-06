@@ -5,7 +5,7 @@
 </a>
 
 ## Welcome
-Welcome to the official github repository of RegistryKit!
+Welcome to the official github repository of BfmeKit!
 This library allows you to easily modify the registry entries used by the BFME games. Additionaly, it provides a way to list and generate previews of BFME maps, as well as list available color options. It can also create installation registries from scratch.
 
 ## Get on NuGet
